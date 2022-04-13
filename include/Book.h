@@ -7,24 +7,26 @@
 
 #include <string>
 
+#include "../include/Author.h"
+
 class Book {
 private:
     std::string name;
-    std::string author;
+    Author author;
     int quantity;
 
 public:
-    Book(const std::string& name, const std::string& author);
-    Book(const std::string& name, const std::string& author, int quantity);
+    Book(const std::string& name, const Author& author);
+    Book(const std::string& name, const Author& author, int quantity);
     Book(const Book& copia);
 
-    std::string GetName();
-    std::string GetAuthor();
-    int GetQuantity();
-
     void SetName(const std::string& name);
-    void SetAuthor(const std::string& name);
+    void SetAuthor(const Author& name);
     void SetQuantity(const int& name);
+
+    std::string GetName();
+    Author GetAuthor();
+    int GetQuantity();
 };
 
 
