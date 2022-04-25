@@ -5,8 +5,6 @@
 #ifndef JIGSAW_LIBRARY_H
 #define JIGSAW_LIBRARY_H
 
-#include <iostream>
-#include <set>
 #include <vector>
 #include <fstream>
 #include "../include/Costumer.h"
@@ -29,8 +27,8 @@ public:
     void SetCostumers(const std::vector<Costumer>& costumer);
 
     //Methods
-    void ReloadAllBooks();
     void ReloadAuthors();
+    void ReloadAllBooks();
     void CreateCostumer(const std::string& first_name, const std::string& last_name);
     void BookRequiring(const Book& book_to_require);
     void BookReturn(const Book& book_to_return);
@@ -48,7 +46,7 @@ private:
     std::vector<Costumer> costumers_;
     std::set<Author> authors_;
 
-    std::vector<std::string> CommaSeparated(const std::string& initial_str, const std::string& delimiter);
+    static std::vector<std::string> CommaSeparated(const std::string& initial_str, const std::string& delimiter);
 };
 
 

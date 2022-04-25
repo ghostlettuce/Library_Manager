@@ -43,23 +43,23 @@ void Author :: SetBooks(const int& books){
 
 //Getter
 
-std::string Author :: GetFirstName(){
+std::string Author :: GetFirstName() const {
     return first_name_;
 }
 
-Gender Author :: GetGender(){
+Gender Author :: GetGender() const {
     return gender_;
 }
 
-std::string Author :: GetLastName(){
+std::string Author :: GetLastName() const {
     return last_name_;
 }
 
-std::string Author :: GetMail(){
+std::string Author :: GetMail() const {
     return mail_;
 }
 
-int Author :: GetBooks(){
+int Author :: GetBooks() const {
     return books_;
 }
 

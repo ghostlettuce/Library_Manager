@@ -20,15 +20,15 @@ Costumer::Costumer(const std::string& first_name, const std::string& last_name) 
 
 //Getters
 
-std::string Costumer::GetFirstName(){
+std::string Costumer::GetFirstName() const {
     return first_name_;
 }
 
-std::string Costumer::GetLastName(){
+std::string Costumer::GetLastName() const {
     return last_name_;
 }
 
-std::set<Book> Costumer::GetRequestedBooks() {
+std::set<Book> Costumer::GetRequestedBooks() const {
     return requested_books_;
 }
 

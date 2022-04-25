@@ -5,8 +5,6 @@
 #ifndef JIGSAW_BOOK_H
 #define JIGSAW_BOOK_H
 
-#include <string>
-
 #include "../include/Author.h"
 
 class Book {
@@ -15,17 +13,17 @@ public:
     Book();
     Book(const std::string& name, const Author& author);
     Book(const std::string& name, const Author& author, int quantity);
-    Book(const Book& copia);
+    Book(const Book& copy);
 
     //Getter
-    std::string GetName() const;
-    Author GetAuthor() const;
-    int GetQuantity() const;
+    [[nodiscard]] std::string GetName() const;
+    [[nodiscard]] Author GetAuthor() const;
+    [[nodiscard]] int GetQuantity() const;
 
     //Setter
     void SetName(const std::string& name);
     void SetAuthor(const Author& author);
-    void SetQuantity(const int& quatity);
+    void SetQuantity(const int& quantity);
 
     //Methods
     void PrintBook();

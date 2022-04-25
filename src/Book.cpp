@@ -24,10 +24,10 @@ Book::Book(const std::string &name, const Author& author, int quantity) {
     quantity_ = quantity;
 }
 
-Book::Book(const Book& copia) {
-    name_ = copia.name_;
-    author_ = copia.author_;
-    quantity_ = copia.quantity_;
+Book::Book(const Book& copy) {
+    name_ = copy.name_;
+    author_ = copy.author_;
+    quantity_ = copy.quantity_;
 }
 
 //Setter

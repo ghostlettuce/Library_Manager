@@ -5,9 +5,7 @@
 #ifndef JIGSAW_COSTUMER_H
 #define JIGSAW_COSTUMER_H
 
-#include <string>
 #include <set>
-
 #include "../include/Book.h"
 
 class Costumer {
@@ -17,9 +15,9 @@ public:
     Costumer(const std::string& first_name, const std::string& last_name);
 
     //Getter
-    std::string GetFirstName();
-    std::string GetLastName();
-    std::set<Book> GetRequestedBooks();
+    [[nodiscard]] std::string GetFirstName() const;
+    [[nodiscard]] std::string GetLastName() const;
+    [[nodiscard]] std::set<Book> GetRequestedBooks() const;
 
     //Setter
     void SetFirstName(const std::string& first_name);

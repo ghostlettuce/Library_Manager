@@ -87,10 +87,20 @@ void Library::SetCostumers(const std::vector<Costumer>& costumer){
 
 //Methods
 
+void Library::ReloadAuthors(){
+    std::set<Author> authors;
+
+    for (const auto& b : all_books_) {
+        authors.insert(b.GetAuthor());
+    }
+
+    authors_ = authors;
+}
+
 void Library::ReloadAllBooks(){
     std::set<Book> all_books = available_books_;
 
-    for (auto r : required_books_) {
+    for (const auto& r : required_books_) {
         for (auto a : all_books) {
             if (r.GetName() == a.GetName()) {
                 a.SetQuantity(a.GetQuantity() + r.GetQuantity());
@@ -105,16 +115,6 @@ void Library::ReloadAllBooks(){
     all_books_ = all_books;
 
     ReloadAuthors();
-}
-
-void Library::ReloadAuthors(){
-    std::set<Author> authors;
-
-    for (auto b : all_books_) {
-        authors.insert(b.GetAuthor());
-    }
-
-    authors_ = authors;
 }
 
 void Library::CreateCostumer(const std::string& first_name, const std::string& last_name){
@@ -221,7 +221,7 @@ void Library::PrintAuthorList(){
 }
 
 
-std::vector<std::string> CommaSeparated(const std::string& initial_str, const std::string& delimiter){
+std::vector<std::string> Library::CommaSeparated(const std::string &initial_str, const std::string &delimiter) {
     size_t pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
     std::vector<std::string> res;

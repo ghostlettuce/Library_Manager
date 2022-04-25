@@ -1,0 +1,13 @@
+# ninja log v5
+6	609	1650909306131176276	CMakeFiles/Jigsaw.dir/src/Author.cpp.o	4b5b8aa00d206bcd
+2	444	1650910830272289554	CMakeFiles/Jigsaw.dir/src/Book.cpp.o	ce780e2ba7f080ce
+2	602	1650912018713286943	CMakeFiles/Jigsaw.dir/main.cpp.o	43f2f22eeae9513f
+3	481	1650912166234400616	CMakeFiles/Jigsaw.dir/src/Book.cpp.o	ce780e2ba7f080ce
+2	487	1650912166242115779	CMakeFiles/Jigsaw.dir/src/Author.cpp.o	4b5b8aa00d206bcd
+2	700	1650912166455583871	CMakeFiles/Jigsaw.dir/main.cpp.o	43f2f22eeae9513f
+1	522	1650912504550691116	CMakeFiles/Jigsaw.dir/src/Author.cpp.o	4b5b8aa00d206bcd
+1	522	1650912504554769437	CMakeFiles/Jigsaw.dir/src/Book.cpp.o	ce780e2ba7f080ce
+1	606	1650912504641612811	CMakeFiles/Jigsaw.dir/main.cpp.o	43f2f22eeae9513f
+4	536	1650912589259501386	CMakeFiles/Jigsaw.dir/src/Author.cpp.o	4b5b8aa00d206bcd
+5	544	1650912589273455776	CMakeFiles/Jigsaw.dir/src/Book.cpp.o	ce780e2ba7f080ce
+4	604	1650912589332610109	CMakeFiles/Jigsaw.dir/main.cpp.o	43f2f22eeae9513f

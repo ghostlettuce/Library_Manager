@@ -21,11 +21,11 @@ public:
     Author(const std::string& first_name, const std::string& last_name, const Gender& gender, const std::string& mail);
 
     //Getter
-    std::string GetFirstName();
-    Gender GetGender();
-    std::string GetLastName();
-    std::string GetMail();
-    int GetBooks();
+    [[nodiscard]] std::string GetFirstName() const;
+    [[nodiscard]] Gender GetGender() const;
+    [[nodiscard]] std::string GetLastName() const;
+    [[nodiscard]] std::string GetMail() const;
+    [[nodiscard]] int GetBooks() const;
 
     //Setter
     void SetFirstName(const std::string& first_name);
