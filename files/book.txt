@@ -1,4 +1,3 @@
-book_name,author_fname,author_lname,Gender,email
 Hamlet,William,Shakespeare,M,shake@pea.re
 Hercule Poirot,Agatha,Christie,F,agatha@ldn.com
 The Lord of the Rings,John,Tolkien,M,tolkien@oxford.com

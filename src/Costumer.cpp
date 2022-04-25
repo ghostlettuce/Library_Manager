@@ -4,37 +4,54 @@
 
 #include "../include/Costumer.h"
 
-//Contructors
+//Constructors
 
-Costumer::Costumer(const std::string& firstName, const std::string& lastName) {
-    this->firstName = firstName;
-    this->lastName = lastName;
+Costumer::Costumer() {
+    first_name_ = "";
+    last_name_ = "";
+    requested_books_ = std::set<Book> ();
 }
 
-//Setters
-
-void Costumer::setFirstName(const std::string& firstName){
-    this->firstName = firstName;
-}
-
-void Costumer::setLastName(const std::string& lastName){
-    this->lastName = lastName;
-}
-
-void Costumer::setRequestedBooks(const std::set<Book>& requestedBooks) {
-    this->requestedBooks = requestedBooks
+Costumer::Costumer(const std::string& first_name, const std::string& last_name) {
+    first_name_ = first_name;
+    last_name_ = last_name;
+    requested_books_ = std::set<Book> ();
 }
 
 //Getters
 
-std::string Costumer::getFirstName(){
-    return firstName;
+std::string Costumer::GetFirstName(){
+    return first_name_;
 }
 
-std::string Costumer::getLastName(){
-    return lastName;
+std::string Costumer::GetLastName(){
+    return last_name_;
 }
 
-std::set<Book> Costumer::getRequestedBooks() {
-    return requestedBooks;
+std::set<Book> Costumer::GetRequestedBooks() {
+    return requested_books_;
+}
+
+//Setters
+
+void Costumer::SetFirstName(const std::string& first_name){
+    first_name_ = first_name;
+}
+
+void Costumer::SetLastName(const std::string& last_name){
+    last_name_ = last_name;
+}
+
+void Costumer::SetRequestedBooks(const std::set<Book>& requestedBooks) {
+    requested_books_ = requestedBooks;
+}
+
+//Methods
+
+void Costumer::PrintCostumer() {
+    std::cout << first_name_ << " " << last_name_;
+
+    for(auto r : requested_books_){
+        r.PrintBook();
+    }
 }

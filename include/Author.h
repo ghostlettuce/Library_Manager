@@ -6,6 +6,7 @@
 #define JIGSAW_AUTHOR_H
 
 #include <string>
+#include <iostream>
 
 enum Gender{
     Male,
@@ -14,25 +15,34 @@ enum Gender{
 };
 
 class Author {
-private:
-    std::string name;
-    std::string last_name;
-    Gender gender;
-    std::string mail;
-    int books = 0;
-
 public:
-    void SetFirstName(const std::string& first_name);
-    void SetLastName(const std::string& last_name1);
-    void SetGender(const Gender& Gender1);
-    void SetMail(const std::string& Mail);
-    void SetBooks(const int& Books);
+    //Constructor
+    Author();
+    Author(const std::string& first_name, const std::string& last_name, const Gender& gender, const std::string& mail);
 
+    //Getter
     std::string GetFirstName();
     Gender GetGender();
     std::string GetLastName();
     std::string GetMail();
     int GetBooks();
+
+    //Setter
+    void SetFirstName(const std::string& first_name);
+    void SetLastName(const std::string& last_name);
+    void SetGender(const Gender& gender);
+    void SetMail(const std::string& mail);
+    void SetBooks(const int& books);
+
+    //Methods
+    void PrintAuthor();
+
+private:
+    std::string first_name_;
+    std::string last_name_;
+    Gender gender_;
+    std::string mail_;
+    int books_ = 0;
 };
 
 #endif //JIGSAW_AUTHOR_H

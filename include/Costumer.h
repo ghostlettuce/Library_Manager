@@ -11,20 +11,27 @@
 #include "../include/Book.h"
 
 class Costumer {
-private:
-    std::string firstName;
-    std::string lastName;
-    std::set<Book> requestedBooks;
 public:
-    Costumer(const std::string& firstName, const std::string& lastName);
+    //Constructor
+    Costumer();
+    Costumer(const std::string& first_name, const std::string& last_name);
 
-    void setFirstName(const std::string& firstName);
-    void setLastName(const std::string& lastName);
-    void setRequestedBooks(const std::set<Book>& requestedBooks);
+    //Getter
+    std::string GetFirstName();
+    std::string GetLastName();
+    std::set<Book> GetRequestedBooks();
 
-    std::string getFirstName();
-    std::string getLastName();
-    std::set<Book> getRequestedBooks();
+    //Setter
+    void SetFirstName(const std::string& first_name);
+    void SetLastName(const std::string& last_name);
+    void SetRequestedBooks(const std::set<Book>& requested_books);
+
+    //Methods
+    void PrintCostumer();
+private:
+    std::string first_name_;
+    std::string last_name_;
+    std::set<Book> requested_books_;
 };
 
 

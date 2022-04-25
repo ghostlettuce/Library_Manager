@@ -10,23 +10,30 @@
 #include "../include/Author.h"
 
 class Book {
-private:
-    std::string name;
-    Author author;
-    int quantity;
-
 public:
+    //Constructor
+    Book();
     Book(const std::string& name, const Author& author);
     Book(const std::string& name, const Author& author, int quantity);
     Book(const Book& copia);
 
-    void SetName(const std::string& name);
-    void SetAuthor(const Author& name);
-    void SetQuantity(const int& name);
+    //Getter
+    std::string GetName() const;
+    Author GetAuthor() const;
+    int GetQuantity() const;
 
-    std::string GetName();
-    Author GetAuthor();
-    int GetQuantity();
+    //Setter
+    void SetName(const std::string& name);
+    void SetAuthor(const Author& author);
+    void SetQuantity(const int& quatity);
+
+    //Methods
+    void PrintBook();
+
+private:
+    std::string name_;
+    Author author_;
+    int quantity_;
 };
 
 
