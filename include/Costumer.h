@@ -25,6 +25,9 @@ public:
     void SetRequestedBooks(const std::set<Book>& requested_books);
 
     //Methods
+    void RequireBook(const Book& book);
+    void ReturnBook(const Book& book);
+
     void PrintCostumer();
 private:
     std::string first_name_;

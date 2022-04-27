@@ -58,6 +58,12 @@ int Book::GetQuantity() const {
     return quantity_;
 }
 
+//Operators
+
+bool Book::operator<(const Book& book) const {
+    return name_ < book.name_;
+}
+
 //Methods
 
 void Book::PrintBook() {

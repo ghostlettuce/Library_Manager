@@ -25,6 +25,9 @@ public:
     void SetAuthor(const Author& author);
     void SetQuantity(const int& quantity);
 
+    //Operators
+    bool operator<(const Book& book) const;
+
     //Methods
     void PrintBook();
 

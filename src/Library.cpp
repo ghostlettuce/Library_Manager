@@ -14,17 +14,15 @@ Library::Library(){
 }
 
 Library::Library(const std::string& book_list_file, const std::string& costumer_list_file){
-    std::ifstream book_list(book_list_file);
-    std::ifstream costumer_list(costumer_list_file);
-
     std::string file_entry;
     std::vector<std::string> file_entry_separeted;
 
-    Gender author_gender;
+    std::ifstream book_list(book_list_file);
 
     while (book_list.good()) {
         std::getline(book_list, file_entry);
-        file_entry_separeted = CommaSeparated(file_entry, ",");
+        file_entry_separeted = CharSeparated(file_entry, ",");
+        Gender author_gender;
 
         if (file_entry_separeted.at(3) == "M") {
             author_gender = Male;
@@ -35,39 +33,44 @@ Library::Library(const std::string& book_list_file, const std::string& costumer_
         }
 
         Author author(file_entry_separeted.at(1), file_entry_separeted.at(2), author_gender, file_entry_separeted.at(4));
-        Book book(file_entry_separeted.at(0), author);
+        Book book(file_entry_separeted.at(0), author, 1);
 
         available_books_.insert(book);
     }
 
+    book_list.close();
+
+    std::ifstream costumer_list(costumer_list_file);
+
     while(costumer_list.good()){
         std::getline(costumer_list, file_entry);
-        file_entry_separeted = CommaSeparated(file_entry, ",");
+        file_entry_separeted = CharSeparated(file_entry, " ");
 
         Costumer costumer(file_entry_separeted.at(0), file_entry_separeted.at(1));
 
         costumers_.push_back(costumer);
     }
 
-    book_list.close();
     costumer_list.close();
+
+    ReloadAllBooks();
 }
 
 //Getter
 
-std::set<Book> Library::GetAvailableBooks(){
+std::set<Book> Library::GetAvailableBooks() const {
     return available_books_;
 }
 
-std::set<Book> Library::GetRequiredBooks(){
+std::set<Book> Library::GetRequiredBooks() const {
     return required_books_;
 }
 
-std::set<Book> Library::GetAllBooks(){
+std::set<Book> Library::GetAllBooks() const {
   return all_books_;
 }
 
-std::vector<Costumer> Library::GetCostumers(){
+std::vector<Costumer> Library::GetCostumers() const {
     return costumers_;
 }
 
@@ -87,7 +90,7 @@ void Library::SetCostumers(const std::vector<Costumer>& costumer){
 
 //Methods
 
-void Library::ReloadAuthors(){
+void Library::ReloadAuthors() {
     std::set<Author> authors;
 
     for (const auto& b : all_books_) {
@@ -150,6 +153,8 @@ void Library::BookRequiring(const Book& book_to_require){
         required_books_.insert(book_to_require);
     }
 
+
+
     ReloadAllBooks();
 }
 
@@ -199,29 +204,33 @@ void Library::AddBook(const Book& book_to_add){
 void Library::PrintRequiredBooks(){
     for (auto r : required_books_) {
         r.PrintBook();
+        std::cout << std::endl;
     }
 }
 
 void Library::PrintCostumersList(){
     for (auto c : costumers_){
         c.PrintCostumer();
+        std::cout << std::endl;
     }
 }
 
 void Library::PrintBookList(){
     for (auto a : all_books_) {
         a.PrintBook();
+        std::cout << std::endl;
     }
 }
 
 void Library::PrintAuthorList(){
     for (auto a : authors_) {
         a.PrintAuthor();
+        std::cout << std::endl;
     }
 }
 
 
-std::vector<std::string> Library::CommaSeparated(const std::string &initial_str, const std::string &delimiter) {
+std::vector<std::string> Library::CharSeparated(const std::string &initial_str, const std::string &delimiter) {
     size_t pos_start = 0, pos_end, delim_len = delimiter.length();
     std::string token;
     std::vector<std::string> res;

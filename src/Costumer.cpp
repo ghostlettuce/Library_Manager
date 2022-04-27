@@ -48,6 +48,14 @@ void Costumer::SetRequestedBooks(const std::set<Book>& requestedBooks) {
 
 //Methods
 
+void Costumer::RequireBook(const Book& book){
+    requested_books_.insert(book);
+}
+
+void Costumer::ReturnBook(const Book& book){
+    requested_books_.erase(book);
+}
+
 void Costumer::PrintCostumer() {
     std::cout << first_name_ << " " << last_name_;
 

@@ -34,6 +34,9 @@ public:
     void SetMail(const std::string& mail);
     void SetBooks(const int& books);
 
+    //Operators
+    bool operator<(const Author& author) const;
+
     //Methods
     void PrintAuthor();
 

@@ -16,10 +16,10 @@ public:
     Library(const std::string& book_list_file, const std::string& costumer_list_file);
 
     //Getter
-    std::set<Book> GetAvailableBooks();
-    std::set<Book> GetRequiredBooks();
-    std::set<Book> GetAllBooks();
-    std::vector<Costumer> GetCostumers();
+    [[nodiscard]] std::set<Book> GetAvailableBooks() const;
+    [[nodiscard]] std::set<Book> GetRequiredBooks() const;
+    [[nodiscard]] std::set<Book> GetAllBooks() const;
+    [[nodiscard]] std::vector<Costumer> GetCostumers() const;
 
     //Setter
     void SetAvailableBooks(const std::set<Book>& book);
@@ -46,7 +46,7 @@ private:
     std::vector<Costumer> costumers_;
     std::set<Author> authors_;
 
-    static std::vector<std::string> CommaSeparated(const std::string& initial_str, const std::string& delimiter);
+    static std::vector<std::string> CharSeparated(const std::string& initial_str, const std::string& delimiter);
 };
 
 
